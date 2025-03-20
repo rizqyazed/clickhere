@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'basier';
+            src: url('basiercircle-regular-webfont.woff') format('woff'),
+        }
+        a {
+            font-size: 65px;
+        }
+        html,body {
+            font-family: basier;
+            margin: 0;
+        }
+        .container {
+            height: 100vh;
+        }
+        .container div {
+            z-index: 1;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var x = setInterval(function() {
+            var val = $('.timer').html();
+            $('.timer').text(val - 1);
+            if (val < 1) {
+                clearInterval(x);
+                $('.text').toggle()
+                $('.suprise').toggle()
+            }
+        }, 1000);
+    </script>
+    <div class="container">
+        <div class="text">
+            <a>something will happen in </a>
+            <a class="timer">60</a>
+            <a>&nbsp;seconds</a>
+        </div>
+        <div class="suprise" style="display: none;">
+            <a>that was a good rest right! remember to take some time off next time, now go back to what u were doing 😌</a>
+        </div>
+    </div>
+</body>
+</html>
